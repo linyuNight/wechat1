@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html id="html" style="font-size:50px">
+<head>
+	<meta charset=utf-8>
+	<meta name=description content="">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<title>翻牌助力好友，赢海带币！</title>
+	<link rel="stylesheet" type="text/css" href="css/common/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/component/index.css">
+</head>
+<body>
+	<script src="plugin/rem.js"></script>
+	<!-- <div class="daimai-top">
+		<div class="avatar-box">
+			<img class="avatar" src="image/images2/img_06.png">
+		</div>
+		<div class="daimai-top-textbox">
+			<p class="daimai-top-text1">海带宝日本代买</p>
+			<p class="daimai-top-text2">商品95折 包税转运回国</p>
+		</div>
+	</div>
+	<div class="card-box">
+		<div class="card-box-top"></div>
+		<div class="card-content">
+			<div class="card">
+				<div class="card1"></div>
+				<div class="card2 card-bg1"></div>
+			</div>
+			<div class="card">
+				<div class="card1"></div>
+				<div class="card2 card-bg2"></div>
+			</div>
+			<div class="card">
+				<div class="card1"></div>
+				<div class="card2 card-bg3"></div>
+			</div>
+		</div>
+		<div class="card-content last">
+			<div class="card">
+				<div class="card1"></div>
+				<div class="card2 card-bg4"></div>
+			</div>
+			<div class="card">
+				<div class="card1"></div>
+				<div class="card2 card-bg5"></div>
+			</div>
+		</div>
+		<img class="fanpai" src="image/images/img_03.png">
+		<img class="towin" src="image/images/img_04.png">
+		<p class="show-mask">活动规则</p>
+	</div>
+	<div class="xianshang"></div>
+	<div class="xianxia"></div>
+	<div class="liucheng">
+		<button type="button" class="xiadan"></button>
+	</div>
+	<div class="mask-box">
+		<div class="mask-contain">
+			<div class="mask">
+				<div class="mask-content">
+					<p class="mask-content-title">【活动规则】</p>
+					<p><img class="mask-num" src="image/images3/img_01.png"><span>输入海带币账号密码即可参与活动；</span></p>
+					<p><img class="mask-num" src="image/images3/img_02.png"><span>本人只能翻一张牌，剩余4张需邀请
+好友帮忙，翻出5张不同渠道牌型即可获得1000海带币；</span></p>
+					<p><img class="mask-num" src="image/images3/img_03.png"><span>完成活动后，海带币自动充值到账，
+每个客户代码仅限参与一次。</span></p>
+					<img class="mask-close" src="image/images3/img_04.png">
+					<img class="mask-sure" src="image/images3/img_05.png">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="popup-mask-box">
+		<div class="popup-mask-contain">
+			<div class="popup-mask"></div>
+		</div>
+	</div>
+	<div class="footer-text">最终解释权归海带宝所有</div> -->
+	<script type="text/javascript" src="plugin/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var times = 1;//可以翻牌的次数
+
+			function select(){
+				for(var i=0;i<$('.card').length;i++){
+					if(!$('.card').eq(i).hasClass('active')){
+						$('.card').eq(i).addClass('active');
+						break;
+					}
+            	}
+			}
+			function popup(str){
+				$('.popup-mask').html(str);
+				$('.popup-mask-box').fadeIn();
+				setTimeout(function(){
+					$('.popup-mask-box').fadeOut();
+				},2000)
+			}
+			if($('.card.active').length == 5){
+				$('.fanpai,.yaoqin').hide();
+				$('.fanwan').show();
+			}
+            $('.fanpai').on('click',function(){
+            	if(times>0){
+					select();
+            		setTimeout(function(){
+            			popup("恭喜您成功翻开一张牌！");
+					},800)
+					times--;
+            	}else{
+            		popup("您已经翻过牌啦~");
+            	}
+            })
+            $('.towin').on('click',function(){
+            	location.href="http://15128616se.imwork.net:35675/index2.html";
+            })
+            $('.show-mask').on('click',function(){
+            	$('.mask-box').fadeIn();
+            })
+            $('.mask-close,.mask-sure').on('click',function(){
+            	$('.mask-box').fadeOut();
+            })
+        })
+	</script>
+</body>
+</html>
